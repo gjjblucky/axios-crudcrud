@@ -85,19 +85,20 @@ for( var i=0;i<response.data.length;i++){
             const parentNode=document.getElementById('list of user');
             const childHTML=`<li id='${user._id}' > ${user.amount}-${user.description}_${user.category}
                 <button onclick=deleteUser('${user._id}')> delete user</button>
-                <button onclick=editUserDetails('${user.amount}','${user._id}','${user.category}')>Edit user</button>  
+                <button onclick=editUserDetails(' ${user.description}','${user.amount}','${user.category}' ,'${user._id}' )>Edit user</button>  
                  </li>`;
             parentNode.innerHTML=parentNode.innerHTML+childHTML;
         } 
 
-        function editUserDetails(amount,description,category){
+        function editUserDetails(description,amount,category,userid){
 
 document.getElementById('amount').value = amount;
 document.getElementById('description').value = description;
 document.getElementById('category').value =category;
 
-deleteUser(description)
+deleteUser(userid)
 }
+
 
         function deleteUser(userid)
         {
